@@ -17,7 +17,7 @@ export async function DELETE(
 ) {
     const { id } = await params
 
-    const game = await prisma.game.delete({
+    const game = await prisma.game.findUnique({
         where: {
             id: Number(id)
         }
