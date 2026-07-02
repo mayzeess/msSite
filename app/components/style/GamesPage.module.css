@@ -12,12 +12,12 @@
 }
 
 .gamecardinfo{
-    width: 80%;
-    margin: 2rem auto;
-    padding: 1.25rem;
-    border-radius: 0.5rem;
+    width: min(1100px, 92%);
     background: var(--backgrond);
     display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(1.5rem, 4vw, 4rem);
 }
 
 .imageContainer {
@@ -31,18 +31,23 @@
 
 .imageContainerinfo {
     position: relative;
-    width: clamp(200px, 50vw, 400px);
+    width: 80%;
+    max-width: 60vh;
     aspect-ratio: 8 / 10;
     overflow: hidden;
-    border-radius: 1rem;
-    margin: 2rem auto;
+    flex-shrink: 0;
 }
 
 .info{
     display: flex;
     flex-direction: column;
+    justify-content: center;
     gap: 0.5rem;
     color: var(--textcolor);
+}
+
+.info p {
+    font-size: 1.2vh;
 }
 
 .buttoninfo {
@@ -55,6 +60,7 @@
     border-radius: 0.5rem;
     background: var(--backgrond);
     cursor: pointer;
+    font-size: 2vh;
 }
 
 .buttoninfo:hover {
@@ -77,4 +83,61 @@
     justify-content: center;
     gap: 1rem;
     margin: 1rem auto;
+}
+
+
+.infoPage{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media (max-width: 850px) {
+    .infoPage {
+        min-height: auto;
+        padding: 1rem;
+        align-items: flex-start;
+    }
+
+    .gamecardinfo {
+        width: 100%;
+
+        flex-direction: column;
+        text-align: center;
+
+        gap: 1.5rem;
+    }
+
+    .imageContainerinfo {
+        width: min(75vw, 320px);
+        max-width: 100%;
+        aspect-ratio: 4 / 5;
+    }
+
+    .info {
+        align-items: center;
+        max-width: 100%;
+    }
+
+    .buttons {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .imageContainerinfo {
+        width: min(85vw, 280px);
+    }
+
+    .buttons {
+        width: 100%;
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .buttoninfo,
+    .buttons button {
+        width: 100%;
+    }
 }
