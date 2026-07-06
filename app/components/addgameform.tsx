@@ -31,14 +31,12 @@ const FormAddGame = () => {
             alert("Введите название игры")
             return
         }
-        // if (!description.trim()) {
-        //     description = "Без комментариев"
-        //     return
-        // }
+
         const formData = new FormData()
         formData.append("name", name)
         formData.append("rating", String(rating))
-        formData.append("description", description)
+        formData.append("description", description.trim() ? 
+        description.trim() : "Без комментариев")
         formData.append("image", imageFile)
 
         const response = await fetch("/api/game", {
@@ -59,58 +57,73 @@ const FormAddGame = () => {
         console.log(result)
     }
 
-    return(
-        <div className={styles.WrapperForm}>
-            <form className={styles.form} onSubmit={handleSubmit}>
-                <h1>Форма создания игры</h1>
+    return (
+    <div className={styles.infoPage}>
+        <form className={styles.gameForm} onSubmit={handleSubmit}>
+            <div className={styles.imageContainerForm}>
+                <input
+                className={styles.fileInput}
+                    type="file"
+                    accept="image/*"
+                    onChange={handleImageChange}
+                />
+                {imagePreview ? (
+                    <img
+                        src={imagePreview}
+                        className={styles.preview}
+                    />
+                ) : (
+                    <div className={styles.emptyPreview}>
+                        Изображение
+                    </div>
+                )}
+            </div>
+
+            <div className={styles.formInfo}>
+                <h2>Форма создания игры</h2>
+
                 {message && (
                     <p className={styles.success}>{message}</p>
                 )}
-                <input 
-                required
-                type="file" 
-                accept="image/*"
-                onChange={handleImageChange}
-                />
-                {imagePreview && ( 
-                    <img
-                    src={imagePreview}
-                    className={styles.preview}
-                    />
-                )}
+
                 <input
-                required
-                className={styles.input} 
-                placeholder="Название"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
+                    required
+                    className={styles.input}
+                    placeholder="Название"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
                 />
+
                 <label>
                     Оценка: {rating}/10
                 </label>
+
                 <input
-                type="range" 
-                className={styles.range} placeholder="Оценка"
-                min="1"
-                max="10"
-                step="1"
-                value={rating}
-                onChange={(e) => setRating(Number(e.target.value))}
+                    type="range"
+                    className={styles.range}
+                    min="1"
+                    max="10"
+                    step="1"
+                    value={rating}
+                    onChange={(e) => setRating(Number(e.target.value))}
                 />
-                <textarea 
-                className={styles.textarea} 
-                placeholder="Комментарий"
-                value={description}
-                onChange={(e) => setDescription(e.target.value)}
+
+                <textarea
+                    className={styles.textarea}
+                    placeholder="Комментарий"
+                    value={description}
+                    onChange={(e) => setDescription(e.target.value)}
                 />
-                <button 
-                type="submit" 
-                className={styles.submitButton}
+
+                <button
+                    type="submit"
+                    className={styles.submitButton}
                 >
                     Добавить
                 </button>
-            </form>
-        </div>
+            </div>
+        </form>
+    </div>
     )
 }
 

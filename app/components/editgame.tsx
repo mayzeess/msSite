@@ -59,56 +59,64 @@ const EditGame = ({game}: PostGame) => {
     }
 
     return(
-        <div className={styles.WrapperForm}>
-            <form className={styles.form} onSubmit={handleSubmit}>
-                <h1>Редактирование</h1>
-                {message && (
-                    <p className={styles.success}>
-                        {message}
-                    </p>
-                )}
-                <input 
-                type="file" 
-                accept="image/*"
-                onChange={handleImageChange}
-                />
-                {imagePreview && ( 
-                    <img
-                    src={imagePreview}
-                    className={styles.preview}
+        <div className={styles.infoPage}>
+            <form className={styles.gameForm} onSubmit={handleSubmit}>
+                <div className={styles.imageContainerForm}>
+                    <input
+                    className={styles.fileInput}
+                    type="file" 
+                    accept="image/*"
+                    onChange={handleImageChange}
                     />
-                )}
-                <input
-                required
-                className={styles.input} 
-                placeholder="Название"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                />
-                <label>
+                    {imagePreview ? ( 
+                        <img
+                        src={imagePreview}
+                        className={styles.preview}
+                        />
+                    ) : (
+                        <div className={styles.emptyPreview}>
+                            Изображение
+                        </div>
+                    )}
+                </div>
+                
+                <div className={styles.formInfo}>
+                    <h2>Редактирование игры</h2>
+                    {message && (
+                        <p className={styles.success}>{message}</p>
+                    )}
+                    <input
+                    required
+                    className={styles.input}
+                    placeholder="Название"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    />
+                    <label>
                     Оценка: {rating}/10
-                </label>
-                <input
-                value={rating}
-                onChange={(e) => setRating(Number(e.target.value))}
-                type="range" 
-                className={styles.range} placeholder="Оценка"
-                min="1"
-                max="10"
-                step="1"
-                />
-                <textarea 
-                className={styles.textarea} 
-                placeholder="Комментарий"
-                value={description}
-                onChange={(e) => setDescription(e.target.value)}
-                />
-                <button 
-                type="submit" 
-                className={styles.submitButton}
-                >
-                    Применить
-                </button>
+                    </label>
+                    <input
+                    value={rating}
+                    onChange={(e) => setRating(Number(e.target.value))}
+                    type="range" 
+                    className={styles.range} placeholder="Оценка"
+                    min="1"
+                    max="10"
+                    step="1"
+                    />
+                    <textarea 
+                    className={styles.textarea} 
+                    placeholder="Комментарий"
+                    value={description}
+                    onChange={(e) => setDescription(e.target.value)}
+                    />
+                    <button 
+                    type="submit" 
+                    className={styles.submitButton}
+                    >
+                        Применить
+                    </button>
+                </div>
             </form>
         </div>
     )
