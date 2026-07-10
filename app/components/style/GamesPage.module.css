@@ -9,6 +9,15 @@
     display: flex;
     gap: clamp(1rem, 5vw, 5rem);
     border: 1px solid var(--foreground);
+    text-decoration: none;
+    transition:
+        background-color 0.5s ease,
+        transform 0.5s ease;
+}
+
+.gamecard:hover{
+    background: var(--foreground);
+    transform: translateY(-2px);
 }
 
 .gamecardinfo{

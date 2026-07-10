@@ -24,17 +24,16 @@ const GameCard = ({games}: GamePost) => {
                 <Button href="/game/create" text="Добавить игру"/>
             </div>
             {games.map(el =>(
-                <div key={el.id} className={styles.gamecard}>
-                    <div key={el.id}className={styles.imageContainer}>
+                <Link href={'/game/' + el.id} className={styles.gamecard} key={el.id}>
+                    <div key={el.id} className={styles.imageContainer}>
                         <Image src={el.image} alt={el.name} fill sizes="1000px" style={{objectFit: "cover", objectPosition: "center"} }/>
                     </div>
                     <div className={styles.info}>
                         <h2>Название: {el.name}</h2>
                         <p>Рейтинг: {el.rating}/10</p>
                         <p>Комментарий: {el.description}</p>
-                        <Link href={'/game/' + el.id} className={styles.buttoninfo}>Подробнее</Link>
                     </div>
-                </div>
+                </Link>
             ))}
         </div>
     )
