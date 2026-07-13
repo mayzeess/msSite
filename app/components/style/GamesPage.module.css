@@ -5,7 +5,7 @@
     margin: 2rem auto;
     padding: 1.25rem;
     border-radius: 0.5rem;
-    background: var(--backgrond);
+    background: var(--background);
     display: flex;
     gap: clamp(1rem, 5vw, 5rem);
     border: 1px solid var(--foreground);
@@ -22,7 +22,7 @@
 
 .gamecardinfo{
     width: min(1100px, 92%);
-    background: var(--backgrond);
+    background: var(--background);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -67,7 +67,7 @@
     padding: 0.5rem 1rem;
     border: 1px solid var(--foreground);
     border-radius: 0.5rem;
-    background: var(--backgrond);
+    background: var(--background);
     cursor: pointer;
     font-size: 2vh;
 }

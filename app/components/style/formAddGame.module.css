@@ -1,6 +1,6 @@
 .gameForm {
     width: min(1100px, 92%);
-    background: var(--backgrond);
+    background: var(--background);
 
     display: flex;
     align-items: center;
@@ -39,7 +39,7 @@
     object-fit: contain;
     object-position: center;
 
-    background: var(--backgrond);
+    background: var(--background);
 }
 
 .emptyPreview {
@@ -89,7 +89,7 @@
     border: 1px solid var(--foreground);
     border-radius: 0.5rem;
 
-    background: var(--backgrond);
+    background: var(--background);
     color: var(--textcolor);
 
     font-size: 1rem;
@@ -110,7 +110,7 @@
     border: 1px solid var(--foreground);
     border-radius: 0.5rem;
 
-    background: var(--backgrond);
+    background: var(--background);
     color: var(--textcolor);
 
     resize: none;
