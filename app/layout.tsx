@@ -33,7 +33,7 @@ export default function RootLayout({
     >
       <body className={geistSans.className}>
         <Header />
-        <div className="container">{children}</div>
+        <main className="container">{children}</main>
         </body>
     </html>
   );
