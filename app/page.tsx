@@ -1,5 +1,5 @@
 import InfoMain from "./components/infomian";
-
+import Background from "./components/background";
 
 export default async function Home() {
 
