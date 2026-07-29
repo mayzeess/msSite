@@ -3,6 +3,8 @@ import { NextResponse } from "next/server";
 import fs from "fs/promises";
 import path from "path";
 import crypto from "crypto";
+import { requireAdmin } from "./auth";
+import { error } from "console";
 
 export async function GET() {
     const games = await prisma.game.findMany();
@@ -11,6 +13,15 @@ export async function GET() {
 
 export async function POST(request: Request) {
     try {
+        
+        const authResult = await requireAdmin()
+        if (!authResult.succes) {
+            return Response.json(
+                {error: authResult.message},
+                {status: authResult.status}
+            )
+        }
+
         const formData = await request.formData()
 
         const name = formData.get("name")
