@@ -111,11 +111,9 @@
 
     .gamecardinfo {
         width: 100%;
-
         flex-direction: column;
         text-align: center;
-
-        gap: 1.5rem;
+        gap: 0.5rem;
     }
 
     .imageContainerinfo {

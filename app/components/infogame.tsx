@@ -2,6 +2,7 @@ import Link from "next/link"
 import Image from "next/image";
 import styles from "./style/GamesPage.module.css"
 import DeleteButton from "./deletebutton"
+import AdminOnly from "./AdminOnly";
 
 type Game = {
     id: number,
@@ -28,8 +29,10 @@ const InfoGame = ({game}: PostGame) => {
                     <p>Комментарий: {game.description}</p>
                     <div className={styles.buttons}>
                         <Link href="/game" className={styles.buttoninfo}>Назад</Link>
-                        <Link href={`/game/${game.id}/edit`} className={styles.buttoninfo}>Редактировать</Link>
-                        <DeleteButton gameId={game.id}/>
+                        <AdminOnly>
+                            <Link href={`/game/${game.id}/edit`} className={styles.buttoninfo}>Редактировать</Link>
+                            <DeleteButton gameId={game.id}/>
+                        </AdminOnly>
                     </div>
                 </div>
             </div>

@@ -2,6 +2,7 @@ import styles from "./style/GamesPage.module.css"
 import Image from "next/image"
 import Link from "next/link"
 import Button from "./button"
+import AdminOnly from "./AdminOnly"
 
 type Game = {
     id: number,
@@ -21,7 +22,9 @@ const GameCard = ({games}: GamePost) => {
         <div>
             <h1>Список игр</h1>
             <div className={styles.toolbar}>
-                <Button href="/game/create" text="Добавить игру"/>
+                <AdminOnly>
+                    <Button href="/game/create" text="Добавить игру"/>
+                </AdminOnly>
             </div>
             {games.map(el =>(
                 <Link href={'/game/' + el.id} className={styles.gamecard} key={el.id}>

@@ -14,6 +14,12 @@ export default auth((req) => {
             new URL("/admin/login", req.nextUrl.origin)
         );
     }
+    
+    if (isLoggedIn && isLoginPage) {
+        return Response.redirect(
+            new URL("/admin", req.nextUrl.origin)
+        )
+    }
 });
 
 export const config = {
