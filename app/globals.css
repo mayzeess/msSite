@@ -80,7 +80,7 @@ nav{
     padding: 1rem;
 }
 
-.button-theme {
+.buttonTheme {
   position: absolute;
   right: 2vh;
   text-decoration: none;
@@ -93,7 +93,7 @@ nav{
   transition: transform 0.5s ease, background 0.5s ease;
 }
 
-.button-theme:hover {
+.buttonTheme:hover {
   background: var(--hover);
   text-decoration: none;
   transform: scale(1.2);
@@ -107,4 +107,14 @@ video {
   min-height: 100%;
   object-fit: cover;
   z-index: -2;
+}
+
+.themeIcon {
+    position: relative;
+    width: clamp(0.5rem, 3vw, 1.5rem);
+    aspect-ratio: 1 / 1;
+}
+
+.themeIcon img {
+    object-fit: contain;
 }

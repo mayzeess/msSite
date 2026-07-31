@@ -1,7 +1,7 @@
 'use client'
-
 import Link from "next/link"
 import { useEffect, useState } from "react"
+import Image from "next/image"
 
 type Theme = 'dark' | 'light'
 
@@ -39,8 +39,11 @@ const Header = () => {
                 <Link href="/game" className="navLink">Game</Link>
                 <Link href="/admin" className="navLink">Admin</Link>
             </nav>
-            <button className="button-theme" onClick={changeTheme}>
-                {theme === 'dark' ? '🌑' : '☀️'}
+            <button className="buttonTheme" onClick={changeTheme}>
+                <div className="themeIcon">
+                    <Image src="/background/sunMoon.png" alt="" fill/>
+                </div>
+                {/* {theme === 'dark' ? '🌑' : '☀️'} */}
             </button>
         </header>
     )

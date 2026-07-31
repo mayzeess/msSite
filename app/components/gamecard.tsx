@@ -3,6 +3,7 @@ import Image from "next/image"
 import Link from "next/link"
 import Button from "./button"
 import AdminOnly from "./AdminOnly"
+import SortGames from "./SortGames"
 
 type Game = {
     id: number,
@@ -25,6 +26,7 @@ const GameCard = ({games}: GamePost) => {
                 <AdminOnly>
                     <Button href="/game/create" text="Добавить игру"/>
                 </AdminOnly>
+                <SortGames />
             </div>
             {games.map(el =>(
                 <Link href={'/game/' + el.id} className={styles.gamecard} key={el.id}>
