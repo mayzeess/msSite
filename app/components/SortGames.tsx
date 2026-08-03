@@ -1,6 +1,7 @@
 
 'use client'
 import {useRouter, useSearchParams } from "next/navigation"
+import styles from "./style/button.module.css"
 
 const sortOptions = [
     { value: "date_desc", label: "По дате (новые)" },
@@ -25,7 +26,7 @@ const SortGames = () => {
 
     return(
         <div>
-            <select value={searchParams.get("sort") ?? "date_desc"} onChange={handleChange}>
+            <select value={searchParams.get("sort") ?? "date_desc"} onChange={handleChange} className={styles.buttonSortGame}>
                 {sortOptions.map(option => (
                     <option key={option.value} value={option.value}>
                         {option.label}
