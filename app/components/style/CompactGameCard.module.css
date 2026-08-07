@@ -1,0 +1,152 @@
+
+.gamecard{
+    align-items: center;
+    width: min(1000px, 90%);
+    margin: 2rem auto;
+    padding: 1.25rem;
+    border-radius: 0.5rem;
+    background: var(--background-50);
+    display: flex;
+    gap: clamp(1rem, 5vw, 5rem);
+    border: 1px solid var(--foreground);
+    text-decoration: none;
+    transition:
+        background-color 0.5s ease,
+        transform 0.5s ease;
+}
+
+.gamecard:hover{
+    background: var(--foreground);
+    transform: translateY(-2px);
+}
+
+.gamecardinfo{
+    width: min(1100px, 92%);
+    /* background: var(--background); */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(1.5rem, 4vw, 4rem);
+}
+
+.imageContainer {
+    position: relative;
+    width: clamp(140px, 9vw, 160px);
+    aspect-ratio: 4 / 5;
+    overflow: hidden;
+    flex-shrink: 0;
+    border-radius: 1rem;
+}
+
+.imageContainerinfo {
+    position: relative;
+    width: 80%;
+    max-width: 60vh;
+    aspect-ratio: 8 / 10;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.info{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1.5rem;
+    color: red;
+}
+
+.info p {
+    font-size: 1.2vh;
+}
+
+.buttoninfo {
+    text-align: center;
+    width: fit-content;
+    text-decoration: none;
+    color: var(--textcolor);
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--foreground);
+    border-radius: 0.5rem;
+    background: var(--background);
+    cursor: pointer;
+    font-size: 2vh;
+}
+
+.buttoninfo:hover {
+    background: var(--hover);
+    text-decoration: none;
+}
+
+.info p{
+    font-size: clamp(0.5rem, 4vw, 1.2rem);
+}
+
+.toolbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+    gap: 1rem;
+}
+
+.buttons{
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin: 1rem auto;
+}
+
+
+.infoPage{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media (max-width: 850px) {
+    .infoPage {
+        min-height: auto;
+        padding: 1rem;
+        align-items: flex-start;
+    }
+
+    .gamecardinfo {
+        width: 100%;
+        flex-direction: column;
+        text-align: center;
+        gap: 0.5rem;
+    }
+
+    .imageContainerinfo {
+        width: min(75vw, 320px);
+        max-width: 100%;
+        aspect-ratio: 4 / 5;
+    }
+
+    .info {
+        align-items: center;
+        max-width: 100%;
+    }
+
+    .buttons {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .imageContainerinfo {
+        width: min(85vw, 280px);
+    }
+
+    .buttons {
+        width: 100%;
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .buttoninfo,
+    .buttons button {
+        width: 100%;
+    }
+}

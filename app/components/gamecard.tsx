@@ -1,9 +1,8 @@
 import styles from "./style/GamesPage.module.css"
-import Image from "next/image"
-import Link from "next/link"
 import Button from "./button"
 import AdminOnly from "./AdminOnly"
 import SortGames from "./SortGames"
+import GameView from "./viewGameCard/GameView"
 
 type Game = {
     id: number,
@@ -18,7 +17,6 @@ type GamePost = {
 };
 
 const GameCard = ({games}: GamePost) => {    
-
     return(
         <div>
             <h1>Список игр</h1>
@@ -28,18 +26,7 @@ const GameCard = ({games}: GamePost) => {
                 </AdminOnly>
                 <SortGames />
             </div>
-            {games.map(el =>(
-                <Link href={'/game/' + el.id} className={styles.gamecard} key={el.id}>
-                    <div key={el.id} className={styles.imageContainer}>
-                        <Image src={el.image} alt={el.name} fill sizes="1000px" style={{objectFit: "cover", objectPosition: "center"} }/>
-                    </div>
-                    <div className={styles.info}>
-                        <h2>Название: {el.name}</h2>
-                        <p>Рейтинг: {el.rating}/10</p>
-                        <p>Комментарий: {el.description}</p>
-                    </div>
-                </Link>
-            ))}
+            <GameView games={games}/>
         </div>
     )
 }
