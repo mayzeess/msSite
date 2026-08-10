@@ -3,6 +3,8 @@ import Button from "./button"
 import AdminOnly from "./AdminOnly"
 import SortGames from "./SortGames"
 import GameView from "./viewGameCard/GameView"
+import ButtonView from "./viewGameCard/ButtonView"
+import ViewProvider from "./viewGameCard/ViewProvider"
 
 type Game = {
     id: number,
@@ -16,18 +18,22 @@ type GamePost = {
   games: Game[];
 };
 
-const GameCard = ({games}: GamePost) => {    
+const GameCard = ({games}: GamePost) => {
+    
     return(
-        <div>
-            <h1>Список игр</h1>
-            <div className={styles.toolbar}>
-                <AdminOnly>
-                    <Button href="/game/create" text="Добавить игру"/>
-                </AdminOnly>
-                <SortGames />
+        <ViewProvider>
+            <div>
+                <h1>Список игр</h1>
+                <div className={styles.toolbar}>
+                    <AdminOnly>
+                        <Button href="/game/create" text="Добавить игру"/>
+                    </AdminOnly>
+                    <SortGames />
+                    <ButtonView />
+                </div>
+                <GameView games={games}/>
             </div>
-            <GameView games={games}/>
-        </div>
+        </ViewProvider>
     )
 }
 

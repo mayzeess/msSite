@@ -1,7 +1,8 @@
 'use client'
-import { useState } from "react"
 import ListGameCard from "./ListGameCard"
 import GridGameCard from "./GridGameCard"
+import { useView } from "./ViewProvider"
+
 type Game = {
     id: number,
     image: string,
@@ -16,13 +17,10 @@ type Props = {
 
 const GameView = ({games}: Props) => {    
 
-    const [view, setView] = useState<"list" | "grid">("list")
+    const {view} = useView()
 
     return(
         <div>
-            <button onClick={() => setView(view === "list" ? "grid" : "list")}>
-                {view === "list" ? "Grid" : "List"}
-            </button>
             {view === "list" ? (
                 games.map(game => (
                     <ListGameCard key={game.id} game={game}/>
