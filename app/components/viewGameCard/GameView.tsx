@@ -2,6 +2,7 @@
 import ListGameCard from "./ListGameCard"
 import GridGameCard from "./GridGameCard"
 import { useView } from "./ViewProvider"
+import styles from "../style/GridGameCard.module.css"
 
 type Game = {
     id: number,
@@ -26,9 +27,11 @@ const GameView = ({games}: Props) => {
                     <ListGameCard key={game.id} game={game}/>
                 ))
             ) : (
-                 games.map(game => (
-                    <GridGameCard key={game.id} game={game}/>
-                ))
+                <div className={styles.gameGrid}>
+                    {games.map(game => (
+                        <GridGameCard key={game.id} game={game}/>
+                    ))}
+                </div>
             )
             }
         </div>

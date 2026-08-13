@@ -1,14 +1,11 @@
 
 .gamecard{
     align-items: center;
-    width: min(1000px, 90%);
+    width: fit-content;
     margin: 2rem auto;
-    padding: 1.25rem;
     border-radius: 0.5rem;
-    background: var(--background-50);
     display: flex;
     gap: clamp(1rem, 5vw, 5rem);
-    border: 1px solid var(--foreground);
     text-decoration: none;
     transition:
         background-color 0.5s ease,
@@ -16,8 +13,14 @@
 }
 
 .gamecard:hover{
-    background: var(--foreground);
     transform: translateY(-2px);
+}
+
+.gameGrid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
 }
 
 .gamecardinfo{
@@ -31,7 +34,7 @@
 
 .imageContainer {
     position: relative;
-    width: clamp(140px, 9vw, 160px);
+    width: clamp(200px, 9vw, 260px);
     aspect-ratio: 4 / 5;
     overflow: hidden;
     flex-shrink: 0;

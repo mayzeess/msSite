@@ -12,7 +12,7 @@ type ViewContextType = {
 const ViewContext = createContext<ViewContextType | null>(null)
 
 export const ViewProvider = ({ children }: { children: React.ReactNode }) => {
-    const [view, setView] = useState<View>("list")
+    const [view, setView] = useState<View>("grid")
 
     return (
         <ViewContext.Provider value={{ view, setView }}>
