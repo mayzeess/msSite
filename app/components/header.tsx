@@ -18,7 +18,6 @@ const Header = () => {
         setIsThemeLoaded(true)
     }, [])
 
-
     useEffect(() => {
         if (!isThemeLoaded) return
 
@@ -31,6 +30,7 @@ const Header = () => {
             currentTheme === 'dark' ? 'light' : 'dark'
         )
     }
+
     return(
         <header>
             <nav>

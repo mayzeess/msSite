@@ -1,6 +1,9 @@
 'use client'
 import { useView } from "./ViewProvider"
 import styleButton from "../style/button.module.css"
+import { useState, useEffect } from "react"
+
+type View = 'grid' | 'list'
 
 const ButtonView = () => {
 

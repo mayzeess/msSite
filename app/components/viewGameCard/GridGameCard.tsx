@@ -9,8 +9,8 @@ type Props = {
         rating: number;
         description: string;
         image: string;
-    };
-};
+    }
+}
 
 const GridGameCard = ({game}: Props) => {    
 

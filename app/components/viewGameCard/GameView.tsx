@@ -13,8 +13,8 @@ type Game = {
 }
 
 type Props = {
-  games: Game[];
-};
+  games: Game[]
+}
 
 const GameView = ({games}: Props) => {    
 
